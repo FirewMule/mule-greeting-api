@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a437ad64-1448-4d75-9961-8bb839d195c3" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mule-maven-ci-cd-demoFlow" doc:id="2b74bc3d-3ad6-4de8-8dd4-6642aac51df5" >
+		<http:listener doc:name="Listener" doc:id="7ea9da7d-681f-45e1-935b-065092e5a3f2" config-ref="HTTP_Listener_config" path="/test"/>
+		<set-payload value="'Hi Max here is CI-CD'" doc:name="Set Payload" doc:id="77bec31f-a028-43fd-a87c-fd4c8e50b880" />
+	</flow>
+</mule>
